@@ -1,0 +1,261 @@
+/* /client/src/pages/TrekInfoPage.css */
+.trek-info-container {
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xxxl) var(--spacing-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Nature-inspired background */
+.trek-info-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at top left, rgba(127, 176, 105, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(232, 180, 184, 0.03) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(250, 249, 246, 0.98) 0%, rgba(240, 244, 248, 0.98) 100%);
+  z-index: -2;
+}
+
+/* Floating nature elements */
+.trek-info-container::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(127, 176, 105, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float-gentle 10s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(180deg); }
+}
+
+/* Main heading */
+.trek-info-container h1 {
+  font-family: var(--headline-font);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  color: var(--text-color);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 1;
+}
+
+/* Section headings */
+.trek-info-container h2 {
+  font-family: var(--headline-font);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 600;
+  color: var(--text-color);
+  margin: var(--spacing-xxxl) 0 var(--spacing-lg) 0;
+  position: relative;
+  z-index: 1;
+}
+
+.trek-info-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-secondary) 100%);
+  border-radius: var(--radius-sm);
+}
+
+/* Intro paragraph */
+.intro-paragraph {
+  font-family: var(--body-font);
+  font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+  line-height: 1.7;
+  color: var(--text-color);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--spacing-xxxl) auto;
+  padding: var(--spacing-xl);
+  background: var(--surface-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  position: relative;
+  z-index: 1;
+}
+
+/* Fact sheet table */
+.fact-sheet {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  position: relative;
+  z-index: 1;
+}
+
+.fact-sheet th,
+.fact-sheet td {
+  padding: var(--spacing-lg);
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.fact-sheet th {
+  font-family: var(--body-font);
+  font-weight: 600;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: var(--accent-color);
+  background: rgba(127, 176, 105, 0.05);
+  min-width: 150px;
+}
+
+.fact-sheet td {
+  font-family: var(--body-font);
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.fact-sheet tr:last-child th,
+.fact-sheet tr:last-child td {
+  border-bottom: none;
+}
+
+.fact-sheet tr:hover {
+  background: rgba(127, 176, 105, 0.02);
+}
+
+/* Lists styling */
+.highlights-list,
+.prep-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-lg) 0;
+  position: relative;
+  z-index: 1;
+}
+
+.highlights-list li,
+.prep-list li {
+  font-family: var(--body-font);
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  line-height: 1.6;
+  color: var(--text-color);
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background: var(--surface-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  position: relative;
+  padding-left: calc(var(--spacing-xl) + 20px);
+  transition: all var(--transition-normal);
+}
+
+.highlights-list li::before,
+.prep-list li::before {
+  content: '🌿';
+  position: absolute;
+  left: var(--spacing-lg);
+  top: var(--spacing-lg);
+  font-size: 1.25rem;
+}
+
+.highlights-list li:hover,
+.prep-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-color);
+}
+
+/* Section paragraphs */
+.trek-info-container p {
+  font-family: var(--body-font);
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  line-height: 1.7;
+  color: var(--text-color);
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+  z-index: 1;
+}
+
+/* Strong text */
+.trek-info-container strong {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+/* Section containers */
+.trek-info-container section {
+  margin-bottom: var(--spacing-xxxl);
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .trek-info-container {
+    padding: var(--spacing-xl) var(--spacing-lg);
+  }
+  
+  .fact-sheet th,
+  .fact-sheet td {
+    padding: var(--spacing-md);
+  }
+  
+  .highlights-list li,
+  .prep-list li {
+    padding: var(--spacing-md);
+    padding-left: calc(var(--spacing-lg) + 20px);
+  }
+  
+  .intro-paragraph {
+    padding: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .trek-info-container {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  
+  .fact-sheet {
+    font-size: 0.875rem;
+  }
+  
+  .fact-sheet th,
+  .fact-sheet td {
+    padding: var(--spacing-sm);
+  }
+  
+  .highlights-list li,
+  .prep-list li {
+    padding: var(--spacing-sm);
+    padding-left: calc(var(--spacing-md) + 20px);
+  }
+  
+  .intro-paragraph {
+    padding: var(--spacing-md);
+  }
+}

@@ -1,0 +1,127 @@
+/* Enhanced Nature-Inspired Progress Bar */
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--spacing-md) var(--spacing-xl);
+    transition: all var(--transition-normal);
+  }
+  
+  .progress-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+  }
+  
+  .progress-text {
+    font-family: var(--body-font);
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    font-weight: 600;
+    color: var(--text-color);
+    white-space: nowrap;
+  }
+  
+  .progress-bar-wrapper {
+    flex: 1;
+    max-width: 400px;
+    height: 10px;
+    background: #d0e6d2;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #5a8c5d 0%, #7FB069 100%);
+    border-radius: var(--radius-full);
+    transition: width var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Animated progress bar fill */
+  .progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  
+  /* Progress milestones */
+  .progress-milestones {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .milestone {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    opacity: 0.3;
+    transition: all var(--transition-normal);
+  }
+  
+  .milestone.active {
+    opacity: 1;
+    transform: scale(1.2);
+    box-shadow: 0 0 0 4px rgba(127, 176, 105, 0.2);
+  }
+  
+  .milestone.completed {
+    opacity: 1;
+    background: var(--accent-secondary);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .progress-container {
+      padding: var(--spacing-sm) var(--spacing-lg);
+    }
+    
+    .progress-content {
+      gap: var(--spacing-md);
+    }
+    
+    .progress-bar-wrapper {
+      max-width: 200px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .progress-container {
+      padding: var(--spacing-sm);
+    }
+    
+    .progress-content {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+    
+    .progress-bar-wrapper {
+      max-width: 100%;
+    }
+    
+    .progress-milestones {
+      display: none;
+    }
+  }

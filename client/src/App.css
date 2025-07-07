@@ -1,0 +1,127 @@
+/* /client/src/App.css */
+
+/* Enhanced Nature-Inspired Design System */
+:root {
+  /* Spacing System */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+  --spacing-xxxl: 4rem;
+
+  /* Border Radius System */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+  --radius-full: 50px;
+
+  /* Shadow System */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.16);
+
+  /* Typography */
+  --headline-font: 'Playfair Display', serif;
+  --body-font: 'Montserrat', sans-serif;
+  --body-font-light: 'Montserrat', sans-serif;
+  --body-font-bold: 'Montserrat', sans-serif;
+
+  /* Enhanced Stage 1 - The Lush Valley (Nature's Embrace) */
+  --main-bg: #FAF9F6;      /* Warm cream */
+  --text-color: #2C3E50;   /* Deep forest green */
+  --accent-color: #7FB069; /* Fresh sage green */
+  --accent-secondary: #E8B4B8; /* Soft rose */
+  --accent-text: #FAF9F6;
+  --surface-color: rgba(255, 255, 255, 0.9);
+  --border-color: rgba(127, 176, 105, 0.2);
+
+  /* Enhanced Stage 2 - The Alpine Pass (Mountain Majesty) */
+  --main-bg-alpine: #F0F4F8;      /* Cool mountain mist */
+  --text-color-alpine: #2C3E50;   /* Deep mountain blue */
+  --accent-color-alpine: #6B8E9E; /* Alpine blue */
+  --accent-secondary-alpine: #F4E285; /* Golden hour */
+  --accent-text-alpine: #F0F4F8;
+  --surface-color-alpine: rgba(255, 255, 255, 0.95);
+  --border-color-alpine: rgba(107, 142, 158, 0.2);
+
+  /* Enhanced Stage 3 - The Desert Vista (Sunset Sands) */
+  --main-bg-desert: #FDF6E3;      /* Warm desert sand */
+  --text-color-desert: #8B4513;   /* Rich earth brown */
+  --accent-color-desert: #D2691E; /* Sunset orange */
+  --accent-secondary-desert: #F4A460; /* Sandy gold */
+  --accent-text-desert: #FDF6E3;
+  --surface-color-desert: rgba(255, 255, 255, 0.9);
+  --border-color-desert: rgba(210, 105, 30, 0.2);
+
+  /* Animation Timing */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --transition-bounce: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--body-font);
+  background-color: var(--main-bg);
+  color: var(--text-color);
+  transition: background-color 0.8s ease, color 0.8s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Nature-inspired background patterns */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(127, 176, 105, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(232, 180, 184, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+  transition: opacity 0.8s ease;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--accent-color);
+  color: var(--accent-text);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
+}

@@ -1,0 +1,349 @@
+/* /client/src/pages/RevealPage.css */
+
+/* Ocean-Inspired Minimalist Design */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap');
+
+.reveal-hero-bg {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%);
+  z-index: 0;
+  padding: 2.5vh 0; /* Add vertical padding for better centering */
+}
+
+/* Ocean waves animation */
+.reveal-hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(173, 216, 230, 0.08) 0%, transparent 50%);
+  animation: ocean-waves 8s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes ocean-waves {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.02); }
+}
+
+/* Floating particles like sea foam */
+.reveal-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+  background-size: 50px 50px, 30px 30px;
+  animation: floating-foam 12s linear infinite;
+  z-index: 1;
+}
+
+@keyframes floating-foam {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-100px) rotate(360deg); }
+}
+
+/* Loading Animation */
+.reveal-loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 3rem 4rem;
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.reveal-loading-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: #1e3c72;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.reveal-loading-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.reveal-loading-dots span {
+  width: 8px;
+  height: 8px;
+  background: #667eea;
+  border-radius: 50%;
+  animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+.reveal-loading-dots span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.reveal-loading-dots span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes gentle-pulse {
+  0%, 100% { 
+    transform: scale(0.8); 
+    opacity: 0.6; 
+  }
+  50% { 
+    transform: scale(1.2); 
+    opacity: 1; 
+  }
+}
+
+/* Main card */
+.reveal-glass-card {
+  position: relative;
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 8px;
+  box-shadow: 0 8px 40px 0 rgba(30, 60, 114, 0.13), 0 1.5px 8px 0 rgba(102, 126, 234, 0.08);
+  border: 1.5px solid rgba(102, 126, 234, 0.13);
+  backdrop-filter: blur(18px);
+  padding: 3rem 2rem 2.5rem 2rem;
+  max-width: 600px;
+  width: 95vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+/* Drum roll effect */
+.reveal-drum-roll {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
+.drum-roll-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: #1e3c72;
+  font-weight: 400;
+  animation: gentle-breath 2s ease-in-out infinite;
+}
+
+@keyframes gentle-breath {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 0.8; 
+  }
+  50% { 
+    transform: scale(1.05); 
+    opacity: 1; 
+  }
+}
+
+.reveal-congrats {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: #1e3c72;
+  margin-bottom: 1rem;
+  letter-spacing: 0.3px;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.reveal-unlock {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: #4a5568;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.reveal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #2a5298;
+  text-align: center;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  padding: 2rem;
+  border-radius: 20px;
+  background: rgba(102, 126, 234, 0.05);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.reveal-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.reveal-glass-card p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #667eea;
+  margin: 1rem 0;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+
+.details-button {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 3rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.details-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.details-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+}
+
+.details-button:hover::before {
+  left: 100%;
+}
+
+/* Celebration particles */
+.celebration-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(1px);
+  z-index: 2;
+  animation: celebrate-enhanced 4s ease-out forwards;
+}
+
+@keyframes celebrate-enhanced {
+  0% {
+    transform: translateY(0) scale(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 700px) {
+  .reveal-glass-card {
+    padding: 2.2rem 1.2rem 1.7rem 1.2rem;
+    border-radius: 6px;
+    max-width: 98vw;
+  }
+
+  .reveal-congrats {
+    font-size: 2rem;
+  }
+
+  .reveal-title {
+    font-size: 1.3rem;
+    padding: 1.5rem;
+  }
+
+  .reveal-glass-card p {
+    font-size: 1.2rem;
+  }
+
+  .details-button {
+    padding: 1rem 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .reveal-glass-card {
+    padding: 1.2rem 0.7rem 1.1rem 0.7rem;
+    border-radius: 4px;
+    width: 99vw;
+    max-width: 99vw;
+  }
+
+  .reveal-congrats {
+    font-size: 1.8rem;
+  }
+
+  .reveal-title {
+    font-size: 1.2rem;
+    padding: 1.2rem;
+  }
+
+  .reveal-glass-card p {
+    font-size: 1.1rem;
+  }
+
+  .details-button {
+    padding: 1rem 2rem;
+    width: 100%;
+    text-align: center;
+  }
+}
